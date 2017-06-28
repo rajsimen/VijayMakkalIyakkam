@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1037649846774",
+    "firebase_url": "https://vijaymakkaliyakkam-8894f.firebaseio.com",
+    "project_id": "vijaymakkaliyakkam-8894f",
+    "storage_bucket": "vijaymakkaliyakkam-8894f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1037649846774:android:19b393a73b402ce4",
+        "android_client_info": {
+          "package_name": "ccorp.mobile.vijaymakkaliyakkam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1037649846774-0qlr8seqitvhlocqav427pnp9sru2oje.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ccorp.mobile.vijaymakkaliyakkam",
+            "certificate_hash": "9f8cd2643ceac4b5a8941d4d2f226f07ac9cdd97"
+          }
+        },
+        {
+          "client_id": "1037649846774-3nv70sfdhicog4b2octaac07pkbhum4b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCneOUgPjgqF4UaRsstzrGG6Wrfp1ndulM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1037649846774-3nv70sfdhicog4b2octaac07pkbhum4b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
