@@ -13,6 +13,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,6 +26,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import ccorp.mobile.vijaymakkaliyakkam.R;
 import ccorp.mobile.vijaymakkaliyakkam.fragment.HomeFragment;
+import ccorp.mobile.vijaymakkaliyakkam.fragment.NewsFragment;
 import ccorp.mobile.vijaymakkaliyakkam.others.CircleTransform;
 
 public class HomeActivity extends AppCompatActivity {
@@ -40,8 +42,8 @@ public class HomeActivity extends AppCompatActivity {
     // urls to load navigation header background image
     // and profile image
     private static final String urlNavHeaderBg = "http://api.androidhive.info/images/nav-menu-header-bg.jpg";
-    private static final String urlProfileImg = "https://lh3.googleusercontent.com/eCtE_G34M9ygdkmOpYvCag1vBARCmZwnVS6rS5t4JLzJ6QgQSBquM0nuTsCpLhYbKljoyS-txg";
-
+    private static  String urlProfileImg = "";
+    private static  String urlProfilename="";
     // index to identify current nav menu item
     public static int navItemIndex = 0;
 
@@ -60,13 +62,17 @@ public class HomeActivity extends AppCompatActivity {
     private Handler mHandler;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        Intent it=getIntent();
+        urlProfileImg=it.getStringExtra("photourl");
+        urlProfilename=it.getStringExtra("username");
+        Log.v("photourl",urlProfileImg);
         mHandler = new Handler();
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -111,7 +117,7 @@ public class HomeActivity extends AppCompatActivity {
      */
     private void loadNavHeader() {
         // name, website
-        txtName.setText("Ravi Tamada");
+        txtName.setText(urlProfilename);
         txtWebsite.setText("www.androidhive.info");
 
         // loading header background image
@@ -191,6 +197,11 @@ public class HomeActivity extends AppCompatActivity {
                 // home
                 HomeFragment homeFragment = new HomeFragment();
                 return homeFragment;*/
+
+            case 1:
+                NewsFragment newsFragment = new NewsFragment();
+                return newsFragment;
+
 
             default:
                 return new HomeFragment();

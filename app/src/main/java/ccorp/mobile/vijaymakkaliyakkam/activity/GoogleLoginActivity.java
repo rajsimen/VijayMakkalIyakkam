@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,6 +50,7 @@ public class GoogleLoginActivity extends AppCompatActivity implements
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        setTheme(R.style.SplashTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -191,8 +193,11 @@ public class GoogleLoginActivity extends AppCompatActivity implements
     private void updateUI(FirebaseUser user) {
         hideProgressDialog();
         if (user != null) {
-           Log.v(TAG,"GoogleSignIn  :  : "+user.getDisplayName());
+            Log.v(TAG,"GoogleSignIn  :  : "+user.getDisplayName());
+            Log.v(TAG,"GoogleSignInprofile :  : "+user.getPhotoUrl());
             Intent intent= new Intent(getApplicationContext(),HomeActivity.class);
+            intent.putExtra("username",user.getDisplayName());
+            intent.putExtra("photourl",String.valueOf(user.getPhotoUrl()));
             startActivity(intent);
         } else {
 
