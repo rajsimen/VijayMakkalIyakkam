@@ -10,7 +10,8 @@
     <string name="closeDrawer">close_drawer</string>
 
     <!-- Navigation Drawer menu labels -->
-    <string name="nav_home">Profile</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_profile">Profile</string>
     <string name="nav_photos">News</string>
     <string name="nav_movies">Feedback</string>
     <string name="nav_settings">Settings</string>
@@ -18,6 +19,7 @@
 
     <!-- Toolbar titles when navigation menu item is selected -->
     <string-array name="nav_item_activity_titles">
+        <item>Home</item>
         <item>Profile</item>
         <item>News</item>
         <item>Feedback</item>
@@ -25,10 +27,27 @@
         <item>Settings</item>
     </string-array>
 
+    <integer-array name="img_id_arr">
+        <item>@drawable/images1</item>
+        <item>@drawable/images2</item>
+        <item>@drawable/images3</item>
+        <item>@drawable/images4</item>
+    </integer-array>
+
     <string name="activity_title_about_us">About Us</string>
     <string name="activity_title_privacy_policy">Privacy Policy</string>
     <string name="action_clear_all">Clear All</string>
     <string name="action_logout">Logout</string>
     <string name="action_mark_all_read">Mark All as Read</string>
     <string name="privacy_policy">Privacy Policy</string>
+
+    <string name="home1">Vijay converted his fan clubs into a people’s movement called Vijay Makkal Iyakkam
+        which was officially launched at Pudukottai on 26 July 2009. Makkal Iyakkam is responsible for most
+        of the philanthropic activities conducted by the star. After Cyclone Thane his Makkal Mandram administrators
+        arranged for a function at Kammiyampettai, Cuddalore where the star distributed five kilos of rice to the affected
+        people.</string>
+
+    <string name="home2">Cuddalore was the worst affected area in floods and Vijay reached out to help these people
+        out by rendering some assistance. The area in which the function happened soon wore a festive look with thousands
+        of people gathering to catch a glimpse of their favorite star.</string>
 </resources>

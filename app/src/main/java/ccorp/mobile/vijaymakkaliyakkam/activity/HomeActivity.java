@@ -1,6 +1,9 @@
 package ccorp.mobile.vijaymakkaliyakkam.activity;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
@@ -75,6 +78,8 @@ public class HomeActivity extends AppCompatActivity {
         Log.v("photourl",urlProfileImg);
         mHandler = new Handler();
 
+        
+
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -135,7 +140,7 @@ public class HomeActivity extends AppCompatActivity {
                 .into(imgProfile);
 
         // showing dot next to notifications label
-        navigationView.getMenu().getItem(1).setActionView(R.layout.menu_dot);
+        navigationView.getMenu().getItem(2).setActionView(R.layout.menu_dot);
     }
 
     /***
@@ -198,7 +203,7 @@ public class HomeActivity extends AppCompatActivity {
                 HomeFragment homeFragment = new HomeFragment();
                 return homeFragment;*/
 
-            case 1:
+            case 2:
                 NewsFragment newsFragment = new NewsFragment();
                 return newsFragment;
 

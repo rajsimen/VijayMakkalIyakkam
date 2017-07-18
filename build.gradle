@@ -17,6 +17,12 @@ allprojects {
     repositories {
         jcenter()
     }
+
+    repositories {
+        maven {
+            url 'https://dl.bintray.com/zahid/maven/'
+        }
+    }
 }
 
 task clean(type: Delete) {
