@@ -28,8 +28,10 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import ccorp.mobile.vijaymakkaliyakkam.R;
+import ccorp.mobile.vijaymakkaliyakkam.fragment.FeedBackFragment;
 import ccorp.mobile.vijaymakkaliyakkam.fragment.HomeFragment;
 import ccorp.mobile.vijaymakkaliyakkam.fragment.NewsFragment;
+import ccorp.mobile.vijaymakkaliyakkam.fragment.ProfileFragment;
 import ccorp.mobile.vijaymakkaliyakkam.others.CircleTransform;
 
 public class HomeActivity extends AppCompatActivity {
@@ -47,11 +49,13 @@ public class HomeActivity extends AppCompatActivity {
     private static final String urlNavHeaderBg = "http://api.androidhive.info/images/nav-menu-header-bg.jpg";
     private static  String urlProfileImg = "";
     private static  String urlProfilename="";
+    private static  String urlEmailId="";
     // index to identify current nav menu item
     public static int navItemIndex = 0;
 
     // tags used to attach the fragments
     private static final String TAG_HOME = "home";
+    private static final String TAG_PROFILE = "profile";
     private static final String TAG_PHOTOS = "photos";
     private static final String TAG_MOVIES = "movies";
     private static final String TAG_SETTINGS = "settings";
@@ -63,6 +67,7 @@ public class HomeActivity extends AppCompatActivity {
     // flag to load home fragment when user presses back key
     private boolean shouldLoadHomeFragOnBackPress = true;
     private Handler mHandler;
+    private Bundle userBundle;
 
 
 
@@ -75,8 +80,13 @@ public class HomeActivity extends AppCompatActivity {
         Intent it=getIntent();
         urlProfileImg=it.getStringExtra("photourl");
         urlProfilename=it.getStringExtra("username");
+        urlEmailId=it.getStringExtra("emailid");
         Log.v("photourl",urlProfileImg);
         mHandler = new Handler();
+        userBundle=new Bundle();
+        userBundle.putString("photourl",urlProfileImg);
+        userBundle.putString("username",urlProfilename);
+        userBundle.putString("emailid",urlEmailId);
 
         
 
@@ -109,8 +119,8 @@ public class HomeActivity extends AppCompatActivity {
         setUpNavigationView();
 
         if (savedInstanceState == null) {
-            navItemIndex = 0;
-            CURRENT_TAG = TAG_HOME;
+            navItemIndex = 2;
+            CURRENT_TAG = TAG_PHOTOS;
             loadHomeFragment();
         }
     }
@@ -202,10 +212,17 @@ public class HomeActivity extends AppCompatActivity {
                 // home
                 HomeFragment homeFragment = new HomeFragment();
                 return homeFragment;*/
+            case 1:
+                ProfileFragment profileFragment = new ProfileFragment();
+                profileFragment.setArguments(userBundle);
+                return profileFragment;
 
             case 2:
                 NewsFragment newsFragment = new NewsFragment();
                 return newsFragment;
+            case 3:
+                FeedBackFragment feedBackFragment=new FeedBackFragment();
+                return feedBackFragment;
 
 
             default:
@@ -236,26 +253,32 @@ public class HomeActivity extends AppCompatActivity {
                         navItemIndex = 0;
                         CURRENT_TAG = TAG_HOME;
                         break;
-                    case R.id.nav_photos:
+                    case R.id.nav_profile:
                         navItemIndex = 1;
+                        CURRENT_TAG = TAG_PROFILE;
+                        break;
+                    case R.id.nav_photos:
+                        navItemIndex = 2;
                         CURRENT_TAG = TAG_PHOTOS;
                         break;
                     case R.id.nav_movies:
-                        navItemIndex = 2;
+                        navItemIndex = 3;
                         CURRENT_TAG = TAG_MOVIES;
                         break;
                     case R.id.nav_settings:
-                        navItemIndex = 3;
+                        navItemIndex = 4;
                         CURRENT_TAG = TAG_SETTINGS;
                         break;
                     case R.id.nav_about_us:
                         // launch new intent instead of loading fragment
-                        startActivity(new Intent(HomeActivity.this, AboutUsActivity.class));
+                        //startActivity(new Intent(HomeActivity.this, AboutUsActivity.class));
+                        Toast.makeText(getApplicationContext(), "Under Construction", Toast.LENGTH_LONG).show();
                         drawer.closeDrawers();
                         return true;
                     case R.id.nav_privacy_policy:
                         // launch new intent instead of loading fragment
-                        startActivity(new Intent(HomeActivity.this, PrivacyPolicyActivity.class));
+                       // startActivity(new Intent(HomeActivity.this, PrivacyPolicyActivity.class));
+                        Toast.makeText(getApplicationContext(), "Under Construction", Toast.LENGTH_LONG).show();
                         drawer.closeDrawers();
                         return true;
                     default:

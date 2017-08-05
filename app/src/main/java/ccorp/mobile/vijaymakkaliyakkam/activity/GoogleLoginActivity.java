@@ -30,6 +30,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 import ccorp.mobile.vijaymakkaliyakkam.R;
+import ccorp.mobile.vijaymakkaliyakkam.model.User;
 
 /**
  * Created by Rajkumar
@@ -195,9 +196,12 @@ public class GoogleLoginActivity extends AppCompatActivity implements
         if (user != null) {
             Log.v(TAG,"GoogleSignIn  :  : "+user.getDisplayName());
             Log.v(TAG,"GoogleSignInprofile :  : "+user.getPhotoUrl());
+            Log.v(TAG,"GoogleSignEmailId :  : "+user.getEmail());
+
             Intent intent= new Intent(getApplicationContext(),HomeActivity.class);
             intent.putExtra("username",user.getDisplayName());
             intent.putExtra("photourl",String.valueOf(user.getPhotoUrl()));
+            intent.putExtra("emailid",String.valueOf(user.getEmail()));
             startActivity(intent);
         } else {
 
